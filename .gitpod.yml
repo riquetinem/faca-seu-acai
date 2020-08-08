@@ -1,0 +1,3 @@
+tasks:
+  - init: yarn install && yarn server
+    command: yarn start
