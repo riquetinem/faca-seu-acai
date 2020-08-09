@@ -6,7 +6,7 @@
   Aplicativo de montagem de açaí utilizando React + Typescript.
 </h4>
 
-## :information_source: How To Use
+## :information_source: Como usá-lo
 
 ```bash
 # Clone este repositório
