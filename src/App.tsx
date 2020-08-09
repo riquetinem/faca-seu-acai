@@ -1,18 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
 import GlobalStyle from './styles/global';
-
-// import AppProvider from './hooks';
 
 import Routes from './routes';
 
 const App: React.FC = () => (
   <Router>
-    {/* <AppProvider>
-    </AppProvider> */}
     <Routes />
 
+    <ToastContainer autoClose={3000} />
     <GlobalStyle />
   </Router>
 );

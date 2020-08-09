@@ -23,7 +23,7 @@ export const Content = styled.div`
   margin-top: 150px;
 `;
 
-export const FlavorButton = styled.button<ButtonData>`
+export const ItemButton = styled.button<ButtonData>`
   border: ${(props) => (props.selected ? '3px solid #DEC0F1' : 0)};
   margin-left: 30px;
   width: 160px;

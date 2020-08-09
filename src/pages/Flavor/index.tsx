@@ -1,17 +1,16 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { FiChevronRight } from 'react-icons/fi';
-
-// import formatValue from '../../utils/formatValue';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { Container, Content, FlavorButton, NextButton } from './styles';
 import api from '../../services/api';
 
-interface FlavorFormat {
-  id: number;
-  flavor: string;
-}
+import FlavorFormat from '../../interfaces/Flavor';
 
 const Flavor: React.FC = () => {
+  const history = useHistory();
+
   const [flavors, setFlavors] = useState<FlavorFormat[]>([]);
   const [flavorSelected, setFlavorSelected] = useState<number>();
 
@@ -22,6 +21,14 @@ const Flavor: React.FC = () => {
   const handleFlavor = useCallback((id: number) => {
     setFlavorSelected(id);
   }, []);
+
+  const handleClick = useCallback(() => {
+    if (!flavorSelected) {
+      toast.error('Selecione o sabor do seu açaí');
+    } else {
+      history.push(`/flavor/${flavorSelected}/size/`);
+    }
+  }, [history, flavorSelected]);
 
   return (
     <Container>
@@ -39,7 +46,7 @@ const Flavor: React.FC = () => {
         ))}
       </Content>
 
-      <NextButton>
+      <NextButton onClick={handleClick}>
         Próximo <FiChevronRight color="#1E1E24" size={18} />
       </NextButton>
     </Container>
